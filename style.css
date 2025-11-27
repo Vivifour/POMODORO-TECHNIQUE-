@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7ff;
+    text-align: center;
+    padding-top: 60px;
+}
+
+h1 { font-size: 32px; margin-bottom: 20px; }
+
+.timer { font-size: 70px; margin-bottom: 25px; font-weight: bold; }
+
+.controls button, .settings button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.controls button:hover, .settings button:hover { transform: scale(1.05); }
+
+.settings { margin-top: 25px; }
+
+input { width: 60px; padding: 5px; text-align: center; }
+
+body.dark { background: #1e1e1e; color: white; }
+
+body.dark button { background: #333; color: white; }
+
+#mode { margin-top: 25px; padding: 8px 15px; }

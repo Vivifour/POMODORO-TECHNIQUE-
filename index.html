@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h1>Pomodoro Timer</h1>
+    
+    <div class="timer">
+        <span id="display">25:00</span>
+    </div>
+
+    <div class="controls">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <div class="settings">
+        <label>Focus (menit): <input type="number" id="focusInput" value="25"></label>
+        <label>Break (menit): <input type="number" id="breakInput" value="5"></label>
+        <button onclick="applySetting()">Apply</button>
+    </div>
+
+    <div class="info">
+        Pomodoro Selesai: <span id="count">0</span>
+    </div>
+
+    <button id="mode" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <h2>Statistik Harian (7 Hari)</h2>
+    <canvas id="chart" width="400" height="200"></canvas>
+    <button onclick="resetData()">Reset Statistik</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
