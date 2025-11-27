@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background: #f4f7ff;
@@ -6,11 +5,38 @@ body {
     padding-top: 60px;
 }
 
-h1 { font-size: 32px; margin-bottom: 20px; }
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 
-.timer { font-size: 70px; margin-bottom: 25px; font-weight: bold; }
+.timer {
+    font-size: 70px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
 
-.controls button, .settings button {
+/* === PROGRESS BAR STYLES === */
+#progress-container {
+    width: 300px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin: 15px auto;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #00e676;
+    /* Transisi width 1s linear penting agar progress bar bergerak halus */
+    transition: width 1s linear; 
+}
+/* ========================== */
+
+
+.controls button, .settings button, .todo-input button {
     padding: 10px 18px;
     margin: 5px;
     border: none;
@@ -20,42 +46,105 @@ h1 { font-size: 32px; margin-bottom: 20px; }
     transition: 0.2s;
 }
 
-.controls button:hover, .settings button:hover { transform: scale(1.05); }
+.controls button:hover, .settings button:hover, .todo-input button:hover {
+    transform: scale(1.05);
+}
 
-.settings { margin-top: 25px; }
+.settings {
+    margin-top: 25px;
+}
 
-input { width: 60px; padding: 5px; text-align: center; }
+input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
 
-body.dark { background: #1e1e1e; color: white; }
+#mode {
+    margin-top: 25px;
+    padding: 8px 15px;
+}
 
-body.dark button { background: #333; color: white; }
+/* === DARK MODE STYLES === */
+body.dark {
+    background: #1e1e1e;
+    color: white;
+}
 
-#mode { margin-top: 25px; padding: 8px 15px; }
+body.dark button {
+    background: #333;
+    color: white;
+}
 
-#progress-container {
+body.dark .todo-input input {
+    background: #333;
+    color: white;
+}
+
+body.dark #taskList li {
+    background: #333; /* Latar belakang item To-Do di dark mode */
+    color: white;
+}
+/* ========================== */
+
+
+/* === TO-DO LIST STYLES === */
+.todo-section {
+    margin: 30px auto 0; /* Menggunakan auto untuk menengahkan */
     width: 300px;
-    height: 12px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 20px;
-    margin: 15px auto;
-    overflow:hidden;
 }
-#progress-bar {
-    height: 100%;
-    width: 0%;
+
+.todo-input {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: auto; /* Mengganti properti width agar flex: 1 bekerja */
+    text-align: left;
+}
+
+.todo-input button {
+    padding: 8px 12px;
     background: #00e676;
-    transition: width 1s linear;
-    .todo-section { margin-top: 30px; width: 300px; }
-.todo-input { display: flex; gap: 10px; }
-.todo-input input { flex: 1; padding: 8px; border-radius: 5px; border: none; }
-.todo-input button { padding: 8px 12px; background:#00e676; border:none; border-radius:6px; font-weight:bold; cursor:pointer;}
-#taskList { margin-top: 10px; list-style:none; padding:0;}
-#taskList li { padding:8px; background:white; color:black; border-radius:6px; margin-top:6px; display:flex; justify-content:space-between;}
-.task-done { text-decoration: line-through; opacity:0.5;}.todo-section { margin-top: 30px; width: 300px; }
-.todo-input { display: flex; gap: 10px; }
-.todo-input input { flex: 1; padding: 8px; border-radius: 5px; border: none; }
-.todo-input button { padding: 8px 12px; background:#00e676; border:none; border-radius:6px; font-weight:bold; cursor:pointer;}
-#taskList { margin-top: 10px; list-style:none; padding:0;}
-#taskList li { padding:8px; background:white; color:black; border-radius:6px; margin-top:6px; display:flex; justify-content:space-between;}
-.task-done { text-decoration: line-through; opacity:0.5;}
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0; /* Menghapus margin agar sesuai dengan layout flex */
 }
+
+#taskList {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#taskList li {
+    padding: 8px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#taskList li button {
+    padding: 4px 8px;
+    font-size: 14px;
+    margin: 0;
+    background: transparent;
+    color: #4CAF50;
+}
+
+.task-done {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+/* ========================== */
