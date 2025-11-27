@@ -1,4 +1,3 @@
-
 let focusDuration = 25 * 60;
 let breakDuration = 5 * 60;
 
@@ -16,16 +15,27 @@ function updateDisplay(){
     document.getElementById("display").innerText = `${m}:${s<10?"0"+s:s}`;
 }
 
+// === PROGRESS BAR ===
+function updateProgress() {
+    let totalDuration = isBreak ? breakDuration : focusDuration;
+    let elapsed = totalDuration - duration;
+    let percentage = (elapsed / totalDuration) * 100;
+
+    // Pastikan persentase tidak melebihi 100% saat durasi reset
+    document.getElementById("progress-bar").style.width = `${Math.min(percentage, 100)}%`;
+}
+
 // === TIMER ===
 function startTimer() {
     if (running) return;
     running = true;
 
+    // Mengubah fungsi updateDisplay() menjadi updateTime() agar sesuai dengan permintaan,
+    // dan menambahkan updateProgress()
     timer = setInterval(() => {
         duration--;
         updateDisplay();
-        updateProgress();
-        },1000);
+        updateProgress(); // ← Baris baru yang diminta
 
         if (duration <= 0) {
             clearInterval(timer);
@@ -57,6 +67,7 @@ function resetTimer(){
     duration = focusDuration;
     isBreak = false;
     updateDisplay();
+    updateProgress(); // Reset progress bar saat timer direset
 }
 
 function applySetting(){
@@ -100,12 +111,10 @@ function drawChart(){
             datasets:[{label:'Pomodoro',data:values}]
         }
     });
-function updateProgress() {
-    const total = isBreak ? breakDuration : pomodoroDuration;
-    const progress = ((isBreak ? breakRemaining : pomodoroRemaining) / total) * 100;
-    document.getElementById("progress-bar").style.width = `${100 - progress}%`;
+}
 
-    function addTask() {
+// === TO-DO LIST ===
+function addTask() {
     let input = document.getElementById("taskInput");
     if(input.value.trim() === "") return;
 
@@ -122,7 +131,7 @@ function finishTask(button){
     let item = button.parentElement;
     item.classList.toggle("task-done");
 }
-}
 
 updateDisplay();
+updateProgress(); // Panggil saat pemuatan untuk mengatur progress bar awal
 drawChart();
