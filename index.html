@@ -11,6 +11,9 @@
 <body>
 
     <h1>Pomodoro Timer</h1>
+    <div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
     
     <div class="timer">
         <span id="display">25:00</span>
@@ -21,6 +24,14 @@
         <button onclick="pauseTimer()">Pause</button>
         <button onclick="resetTimer()">Reset</button>
     </div>
+    <div class="todo-section">
+    <h3>To-Do List</h3>
+    <div class="todo-input">
+        <input type="text" id="taskInput" placeholder="Tambah tugas...">
+        <button onclick="addTask()">+</button>
+    </div>
+    <ul id="taskList"></ul>
+</div>
 
     <div class="settings">
         <label>Focus (menit): <input type="number" id="focusInput" value="25"></label>
