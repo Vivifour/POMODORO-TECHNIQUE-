@@ -45,4 +45,17 @@ body.dark button { background: #333; color: white; }
     width: 0%;
     background: #00e676;
     transition: width 1s linear;
+    .todo-section { margin-top: 30px; width: 300px; }
+.todo-input { display: flex; gap: 10px; }
+.todo-input input { flex: 1; padding: 8px; border-radius: 5px; border: none; }
+.todo-input button { padding: 8px 12px; background:#00e676; border:none; border-radius:6px; font-weight:bold; cursor:pointer;}
+#taskList { margin-top: 10px; list-style:none; padding:0;}
+#taskList li { padding:8px; background:white; color:black; border-radius:6px; margin-top:6px; display:flex; justify-content:space-between;}
+.task-done { text-decoration: line-through; opacity:0.5;}.todo-section { margin-top: 30px; width: 300px; }
+.todo-input { display: flex; gap: 10px; }
+.todo-input input { flex: 1; padding: 8px; border-radius: 5px; border: none; }
+.todo-input button { padding: 8px 12px; background:#00e676; border:none; border-radius:6px; font-weight:bold; cursor:pointer;}
+#taskList { margin-top: 10px; list-style:none; padding:0;}
+#taskList li { padding:8px; background:white; color:black; border-radius:6px; margin-top:6px; display:flex; justify-content:space-between;}
+.task-done { text-decoration: line-through; opacity:0.5;}
 }
