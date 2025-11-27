@@ -24,6 +24,8 @@ function startTimer() {
     timer = setInterval(() => {
         duration--;
         updateDisplay();
+        updateProgress();
+        },1000);
 
         if (duration <= 0) {
             clearInterval(timer);
@@ -98,6 +100,28 @@ function drawChart(){
             datasets:[{label:'Pomodoro',data:values}]
         }
     });
+function updateProgress() {
+    const total = isBreak ? breakDuration : pomodoroDuration;
+    const progress = ((isBreak ? breakRemaining : pomodoroRemaining) / total) * 100;
+    document.getElementById("progress-bar").style.width = `${100 - progress}%`;
+
+    function addTask() {
+    let input = document.getElementById("taskInput");
+    if(input.value.trim() === "") return;
+
+    let li = document.createElement("li");
+    li.innerHTML = `
+        <span>${input.value}</span>
+        <button onclick="finishTask(this)">✔</button>
+    `;
+    document.getElementById("taskList").appendChild(li);
+    input.value="";
+}
+
+function finishTask(button){
+    let item = button.parentElement;
+    item.classList.toggle("task-done");
+}
 }
 
 updateDisplay();
