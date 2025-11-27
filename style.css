@@ -31,3 +31,18 @@ body.dark { background: #1e1e1e; color: white; }
 body.dark button { background: #333; color: white; }
 
 #mode { margin-top: 25px; padding: 8px 15px; }
+
+#progress-container {
+    width: 300px;
+    height: 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    margin: 15px auto;
+    overflow:hidden;
+}
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #00e676;
+    transition: width 1s linear;
+}
